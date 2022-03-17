@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InputPage">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="215dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="85dp"
+        android:text="@string/inputnum"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNuminputtries"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextNuminputtries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="90dp"
+        android:ems="10"
+        android:hint="@string/inputaint"
+        android:inputType="numberSigned"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="184dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginBottom="387dp"
+        android:text="@string/startgame"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNuminputtries" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

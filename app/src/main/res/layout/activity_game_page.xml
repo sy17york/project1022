@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GamePage">
+
+    <ImageView
+        android:id="@+id/imageViewtoolow"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewtoohigh"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <ImageView
+        android:id="@+id/imageViewtoohigh"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewtoolow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/arrow_up_float" />
+
+    <TextView
+        android:id="@+id/textViewshowLH"
+        android:layout_width="180dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="116dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewtoolow" />
+
+    <EditText
+        android:id="@+id/editTextguessInputNum"
+        android:layout_width="258dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="54dp"
+        android:ems="10"
+        android:hint="Type a Guess Number"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewguessedNum" />
+
+    <TextView
+        android:id="@+id/textViewguessedNum"
+        android:layout_width="171dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewshowLH" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="159dp"
+        android:text="botton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextguessInputNum" />
+</androidx.constraintlayout.widget.ConstraintLayout>

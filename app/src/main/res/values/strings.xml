@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">project</string>
+    <string name="inputnum">Input How Many Tries</string>
+    <string name="startgame">Start Game</string>
+    <string name="inputaint">input a int number here</string>
+    <string name="toolow">Too Low</string>
+    <string name="toohigh">Too High</string>
+
+</resources>
