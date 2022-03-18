@@ -11,6 +11,19 @@
         <entry key="..\:/University/UT/York/york2022winter/1022/EECS1022Apps/project/app/src/main/res/layout/mainpage.xml" value="0.26510416666666664" />
         <entry key="..\:/University/UT/York/york2022winter/1022/EECS1022Apps/project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.28125" />
         <entry key="..\:/University/UT/York/york2022winter/1022/EECS1022Apps/project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.28125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/drawable/image_homebutton.xml" value="0.3828125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/drawable/image_retrybutton.xml" value="0.3828125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/drawable/text_drawborder.xml" value="0.3828125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/drawable/text_drawcircleborder.xml" value="0.3828125" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/activity_game_page.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/activity_input_page.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/activity_leaderboards_page.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/activity_lose_page.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/activity_main_page.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/activity_win_page.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/Andrew/AndroidStudioProjects/project1022/app/src/main/res/layout/drawtextborder.xml" value="0.28940217391304346" />
       </map>
     </option>
   </component>
