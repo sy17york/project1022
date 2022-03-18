@@ -26,6 +26,7 @@
         android:background="@drawable/text_drawrectangleborder"
         android:text="@string/your_score"
         android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,61 +81,61 @@
             <TextView
                 android:id="@+id/score_top1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top8"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
 
             <TextView
                 android:id="@+id/score_top10"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:text="" />
         </LinearLayout>
     </ScrollView>

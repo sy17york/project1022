@@ -15,5 +15,25 @@
     <string name="enter_name_here">\nEnter name here</string>
     <string name="ok_button">OK</string>
     <string name="okimage">okimage</string>
+    <string name="top_1">Top 1</string>
+    <string name="top_2">Top 2</string>
+    <string name="top_3">Top 3</string>
+    <string name="top_4">Top 4</string>
+    <string name="top_5">Top 5</string>
+    <string name="top_6">Top 6</string>
+    <string name="top_7">Top 7</string>
+    <string name="top_8">Top 8</string>
+    <string name="top_9">Top 9</string>
+    <string name="top_10">Top 10</string>
+    <string name="top_11">Top 11</string>
+    <string name="top_12">Top 12</string>
+    <string name="top_13">Top 13</string>
+    <string name="top_14">Top 14</string>
+    <string name="top_15">Top 15</string>
+    <string name="top_16">Top 16</string>
+    <string name="top_17">Top 17</string>
+    <string name="top_18">Top 18</string>
+    <string name="top_19">Top 19</string>
+    <string name="top_20">Top 20</string>
 
 </resources>
