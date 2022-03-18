@@ -5,5 +5,10 @@
     <string name="inputaint">input a int number here</string>
     <string name="toolow">Too Low</string>
     <string name="toohigh">Too High</string>
+    <string name="you_lost">You Lost!</string>
+    <string name="your_score">\nYour\n Score</string>
+    <string name="score_top10">\nTOP 10</string>
+    <string name="retryimage">retryimage</string>
+    <string name="homeimage">homeimage</string>
 
 </resources>
