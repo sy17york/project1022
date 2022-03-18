@@ -59,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.598" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView4"
         android:layout_width="148dp"
         android:layout_height="57dp"
