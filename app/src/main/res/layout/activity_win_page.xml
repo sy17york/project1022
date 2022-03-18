@@ -5,5 +5,117 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WinPage">
+    <TextView
+        android:id="@+id/result_view"
+        android:layout_width="110dp"
+        android:layout_height="69dp"
+        android:text="@string/you_won"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <TextView
+        android:id="@+id/score_border"
+        android:layout_width="275dp"
+        android:layout_height="82dp"
+        android:background="@drawable/text_drawrectangleborder"
+        android:text="@string/your_score"
+        android:paddingLeft="20dp"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.268" />
+
+    <TextView
+        android:id="@+id/score_display"
+        android:layout_width="148dp"
+        android:layout_height="47dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="272dp"
+        android:layout_height="213dp"
+        android:background="@drawable/text_drawrectangleborder"
+        android:text="@string/new_top10"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.598" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="148dp"
+        android:layout_height="57dp"
+        android:background="@drawable/text_drawrectangleborder"
+        android:text="@string/enter_name_here"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.323"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637" />
+
+    <ImageButton
+        android:id="@+id/add_scorebutton"
+        android:layout_width="62dp"
+        android:layout_height="61dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/text_drawcircleborder"
+        android:text="@string/ok_button"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.716"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        app:srcCompat="@drawable/image_okbutton"
+        android:contentDescription="@string/okimage" />
+    <ImageButton
+        android:id="@+id/home_button"
+        android:layout_width="80dp"
+        android:layout_height="79dp"
+        android:background="@drawable/text_drawcircleborder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.917"
+        app:srcCompat="@drawable/image_homebutton"
+        android:contentDescription="@string/homeimage" />
+
+    <ImageButton
+        android:id="@+id/retry_button"
+        android:layout_width="80dp"
+        android:layout_height="81dp"
+        android:background="@drawable/text_drawcircleborder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.749"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92"
+        app:srcCompat="@drawable/image_retrybutton"
+        android:contentDescription="@string/retryimage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

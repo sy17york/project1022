@@ -6,9 +6,14 @@
     <string name="toolow">Too Low</string>
     <string name="toohigh">Too High</string>
     <string name="you_lost">You Lost!</string>
-    <string name="your_score">\nYour\n Score</string>
+    <string name="you_won">You Won!</string>
+    <string name="your_score">\nYour \n Score</string>
     <string name="score_top10">\nTOP 10</string>
     <string name="retryimage">retryimage</string>
     <string name="homeimage">homeimage</string>
+    <string name="new_top10">\nNEW top 10 Score\nEnter your name</string>
+    <string name="enter_name_here">\nEnter name here</string>
+    <string name="ok_button">OK</string>
+    <string name="okimage">okimage</string>
 
 </resources>
