@@ -1,7 +1,6 @@
 package com.example.project;
 
 import java.util.Random;
-
 public class RunGame {
         int actual_tries;             // user times of tried in game
         int expected_tries;           // user inputted tries
