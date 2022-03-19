@@ -18,11 +18,11 @@ public class TestRunGame {
         assertEquals("easy",aby.getMode());
         assertEquals(10,aby.getExpected_Tries());
         assertEquals(0,aby.getActual_Tries());
-        assertTrue(aby.value>0 && (aby.value <= 10));
+        assertTrue(aby.getValue()>0 && (aby.getValue() <= 10));
         Random n = new Random();
         String a = aby.isNumberCorrect( n.nextInt(11) );
         assertTrue(  a.equals("too high") || a.equals("win") || a.equals("too low"));
-        assertEquals(1, aby.actual_tries);
+        assertEquals(1, aby.getActual_Tries());
     }
     @Test
     public void test_02(){
@@ -38,7 +38,7 @@ public class TestRunGame {
                 n = i;
                 break;
             }
-        }assertEquals( n, abs.actual_tries);
+        }assertEquals( n, abs.getActual_Tries());
         assertEquals( n, abs.getValue());
     }
 }
