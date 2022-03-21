@@ -24,7 +24,8 @@
         android:layout_height="82dp"
         android:background="@drawable/text_drawrectangleborder"
         android:text="@string/your_score"
-        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="0dp"
         android:textAlignment="viewStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +35,7 @@
         app:layout_constraintVertical_bias="0.268" />
 
     <TextView
-        android:id="@+id/score_display"
+        android:id="@+id/winscore_display"
         android:layout_width="148dp"
         android:layout_height="47dp"
         android:text=""
@@ -60,7 +61,7 @@
         app:layout_constraintVertical_bias="0.598" />
 
     <EditText
-        android:id="@+id/textView4"
+        android:id="@+id/name_input"
         android:layout_width="148dp"
         android:layout_height="57dp"
         android:background="@drawable/text_drawrectangleborder"
@@ -71,7 +72,10 @@
         app:layout_constraintHorizontal_bias="0.323"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.637"
+        android:autofillHints="Enter your name"
+        android:inputType="textPersonName"
+        tools:ignore="LabelFor" />
 
     <ImageButton
         android:id="@+id/add_scorebutton"
