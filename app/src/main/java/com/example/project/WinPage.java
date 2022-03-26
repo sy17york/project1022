@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -15,18 +17,26 @@ public class WinPage extends AppCompatActivity {
         setContentView(R.layout.activity_win_page);
     }
 
+    private int winscoredisplay;
+    private String winner_name;
+
+
+    public int getWinscoredisplay(){
+        return this.winscoredisplay;
+    }
+    public void setWinscoredisplay(int score){
+        this.winscoredisplay = score;
+    }
     public void win_score(){
-        TextView score_display = findViewById(R.id.score_display);
-        score_display.setText("1");
+        TextView textView = findViewById(R.id.winscore_display);
+        textView.setText(winscoredisplay);
     }
-    public void add_score(){
+    public String add_score(){
         ImageButton button = findViewById(R.id.add_scorebutton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+        button.setOnClickListener(view -> {
+            EditText user_input = findViewById(R.id.name_input);
+            winner_name = user_input.getText().toString();
         });
+        return this.winner_name;
     }
-
 }
