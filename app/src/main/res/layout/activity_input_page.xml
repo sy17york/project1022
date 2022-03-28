@@ -34,14 +34,14 @@
         android:hint="@string/inputaint"
         android:inputType="numberSigned"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/inputPagebutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/inputPagebutton"
         android:layout_width="184dp"
         android:layout_height="59dp"
         android:layout_marginStart="114dp"
