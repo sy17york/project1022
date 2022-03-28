@@ -16,10 +16,10 @@ public class WinPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win_page);
-
+        Intent intent = getIntent();
+        String score = intent.getStringExtra("Score");
     }
-    Intent intent = getIntent();
-    String score = intent.getStringExtra("Score");
+
     private int winscoredisplay;
     private String winner_name;
 

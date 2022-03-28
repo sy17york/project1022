@@ -18,7 +18,6 @@ public class GamePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
-
         Intent i = getIntent();
         String mode = i.getStringExtra("Mode");
         int expectedtries = Integer.parseInt(i.getStringExtra("Inputtries"));
@@ -27,33 +26,43 @@ public class GamePage extends AppCompatActivity {
         user = new RunGame();
         user.setMode(mode);
         user.setExpected_Tries(expectedtries);
+
         RunCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 int guessednum = Integer.parseInt(GuessInputNum.getText().toString());
 
-                if(user.isNumberCorrect(guessednum).equals("win")){
-                    String score = String.valueOf(user.getScore());
-                    Intent intent = new Intent(getApplicationContext(),WinPage.class);
-                    intent.putExtra("Score", score);
-                    startActivity(intent);
-                }else if(user.isNumberCorrect(guessednum).equals("lose")){
-                    Intent intent = new Intent(getApplicationContext(),WinPage.class);
-                    intent.putExtra("Value",user.getValue());
-                    startActivity(intent);
-                }else if(user.isNumberCorrect(guessednum).equals("too high")){
-                    String str = "Tries: " + user.getActual_Tries();
-                    ((TextView) findViewById(R.id.textViewguessedNum)).setText(str);
-                    String str1 = guessednum + " too high";
-                    ((TextView) findViewById(R.id.textViewshowLH)).setText(str1);
-                    GuessInputNum.setText("");
-                }else if(user.isNumberCorrect(guessednum).equals("too low")){
-                    String str = "Tries: " + user.getActual_Tries();
-                    ((TextView) findViewById(R.id.textViewguessedNum)).setText(str);
-                    String str1 = guessednum + " too low";
-                    ((TextView) findViewById(R.id.textViewshowLH)).setText(str1);
-                    GuessInputNum.setText("");
+                switch (user.isNumberCorrect(guessednum)) {
+                    case "win": {
+                        String score = String.valueOf(user.getScore());
+                        Intent intent = new Intent(getApplicationContext(), WinPage.class);
+                        intent.putExtra("Score", score);
+                        startActivity(intent);
+                        break;
+                    }
+                    case "lose": {
+                        Intent intent = new Intent(getApplicationContext(), WinPage.class);
+                        intent.putExtra("Value", user.getValue());
+                        startActivity(intent);
+                        break;
+                    }
+                    case "too high": {
+                        String str = "Tries: " + user.getActual_Tries();
+                        ((TextView) findViewById(R.id.textViewguessedNum)).setText(str);
+                        String str1 = guessednum + " too high";
+                        ((TextView) findViewById(R.id.textViewshowLH)).setText(str1);
+                        GuessInputNum.setText("");
+                        break;
+                    }
+                    case "too low": {
+                        String str = "Tries: " + user.getActual_Tries();
+                        ((TextView) findViewById(R.id.textViewguessedNum)).setText(str);
+                        String str1 = guessednum + " too low";
+                        ((TextView) findViewById(R.id.textViewshowLH)).setText(str1);
+                        GuessInputNum.setText("");
+                        break;
+                    }
                 }
             }
         });

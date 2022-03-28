@@ -70,16 +70,19 @@ public class RunGame {
 
         public String isNumberCorrect (int m) {
             String result;
+            this.actual_tries++;
             if(this.expected_tries == 0){
                 throw new IllegalArgumentException("please set an correct expected_tries");
             }else{
-                this.actual_tries++;
+
                 if (this.actual_tries < this.expected_tries) {
                     if (this.value == m) {
                         result = "win";      // will be jump to WinPage
                     }else if(this.value < m){
+
                         result = "too high"; // will be change to show a too high pic
                     }else {
+
                         result = "too low";  // will be change to show a too low pic
                     }
                 }else if(this.actual_tries == this.expected_tries){

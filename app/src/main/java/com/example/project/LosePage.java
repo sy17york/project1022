@@ -12,10 +12,10 @@ public class LosePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lose_page);
-
+        Intent intent = getIntent();
+        String correct_number = intent.getStringExtra("Value");
     }
-    Intent intent = getIntent();
-    String correct_number = intent.getStringExtra("Value");
+
     private int losescoredisplay;
     private String[] winnernames;
     private String[] winnerscores;
