@@ -38,7 +38,9 @@
         android:id="@+id/winscore_display"
         android:layout_width="148dp"
         android:layout_height="47dp"
-        android:text=""
+        android:text="Score"
+        android:textAlignment="center"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.573"
@@ -46,53 +48,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.282" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="272dp"
-        android:layout_height="213dp"
-        android:background="@drawable/text_drawrectangleborder"
-        android:text="@string/new_top10"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.598" />
 
-    <EditText
-        android:id="@+id/name_input"
-        android:layout_width="148dp"
-        android:layout_height="57dp"
-        android:background="@drawable/text_drawrectangleborder"
-        android:text="@string/enter_name_here"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.323"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637"
-        android:autofillHints="Enter your name"
-        android:inputType="textPersonName"
-        tools:ignore="LabelFor" />
-
-    <ImageButton
-        android:id="@+id/add_scorebutton"
-        android:layout_width="62dp"
-        android:layout_height="61dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/text_drawcircleborder"
-        android:text="@string/ok_button"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.716"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.64"
-        app:srcCompat="@drawable/image_okbutton"
-        android:contentDescription="@string/okimage" />
     <ImageButton
         android:id="@+id/home_button"
         android:layout_width="80dp"
