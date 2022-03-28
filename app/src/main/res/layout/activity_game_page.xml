@@ -55,7 +55,7 @@
         android:hint="Type a Guess Number"
         android:inputType="numberSigned"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/RunAndCheck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewguessedNum" />
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewshowLH" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/RunAndCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"

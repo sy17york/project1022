@@ -2,6 +2,7 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,8 +12,10 @@ public class LosePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lose_page);
-    }
 
+    }
+    Intent intent = getIntent();
+    String correct_number = intent.getStringExtra("Value");
     private int losescoredisplay;
     private String[] winnernames;
     private String[] winnerscores;
