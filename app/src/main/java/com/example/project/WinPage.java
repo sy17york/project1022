@@ -1,7 +1,10 @@
 package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
@@ -24,7 +27,42 @@ public class WinPage extends AppCompatActivity {
         textView.setText(score);
 
         //If new score
+        if (store_data.get_length_scores()==0){
+            showNewScore();
+            String[] first_score = new String[1];
+            String[] first_name = new String[1];
+            first_score[0] = String.valueOf(score);
+            first_name[0] = winner_name;
+            store_data.putScores(first_score);
+            store_data.putNames(first_name);
+            store_data.length_of_scores(1);
+        }else{
+            String[] game_scores = store_data.getScores();
+            String[] score_names = store_data.getNames();
+            String[] score_arr = new String[20];
+            String[] name_arr = new String[20];
+            if (game_scores.length<20){
+                for(int i = 0;i<game_scores.length;i++){
+                    score_arr[i] = score_names[i];
+                    name_arr[i] = score_names[i];
+                }
+                game_scores = score_arr;
+                score_names = name_arr;
+            }
 
+            for (int i = 0; i<game_scores.length; i++){
+                if (Integer.parseInt(score) > Integer.parseInt(game_scores[i]) || score_arr[i] == null){
+                    store_data.length_of_scores(game_scores.length+1);
+                    showNewScore();
+                    game_scores[i] = score;
+                    score_names[i] = this.winner_name;
+                    store_data.putNames(score_names);
+                    store_data.putScores(game_scores);
+                    break;
+                }
+            }
+
+        }
 
         //Home and retry button
         ImageButton button = findViewById(R.id.home_button);
@@ -40,17 +78,23 @@ public class WinPage extends AppCompatActivity {
     }
 
 
-    private void showNewScore(){
-        final Dialog dialog = new Dialog(WinPage.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.activity_new_score);
-
-        ImageButton button = findViewById(R.id.add_scorebutton);
-        button.setOnClickListener(view -> {
-            EditText user_input = findViewById(R.id.name_input);
-            this.winner_name = user_input.getText().toString();
-            dialog.dismiss();
+    private void showNewScore() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(WinPage.this);
+        builder.setTitle("NEW Top Score Enter Name Below!");
+        final EditText input = new EditText(this);
+        builder.setView(input);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                winner_name = input.getText().toString();
+                // Do something with value!
+            }
         });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // Canceled.
+            }
+        });
+        builder.show();
     }
 }

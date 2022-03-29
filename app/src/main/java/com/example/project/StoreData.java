@@ -13,8 +13,7 @@ public class StoreData extends AppCompatActivity {
         SharedPreferences.Editor editor = put_scores.edit();
         for (int i = 0; i<save_high_scores.length; i++){
             if (save_high_scores[i]!=null) {
-                String num = String.valueOf(i + 1);
-                num = "top" + i;
+                String num = "top"+ (i + 1);
                 editor.putString(num, save_high_scores[i]);
                 editor.apply();
             }
@@ -25,8 +24,7 @@ public class StoreData extends AppCompatActivity {
         SharedPreferences.Editor editor = put_names.edit();
         for (int i = 0; i<names.length; i++){
             if (names[i]!=null) {
-                String num = String.valueOf(i + 1);
-                num = "name" + i;
+                String num = "name"+ (i + 1);
                 editor.putString(num, names[i]);
                 editor.apply();
             }
@@ -36,7 +34,7 @@ public class StoreData extends AppCompatActivity {
         SharedPreferences get_names = getApplicationContext().getSharedPreferences("TopScores", Context.MODE_PRIVATE);
         String[] names = new String[this.score_length];
         for (int i = 0; i < this.score_length; i++) {
-            String player_scores = "name" + String.valueOf(i + 1);
+            String player_scores = "name" + (i + 1);
             names[i] = get_names.getString(player_scores, "");
         }
 
@@ -58,7 +56,7 @@ public class StoreData extends AppCompatActivity {
         SharedPreferences get_scores = getApplicationContext().getSharedPreferences("TopScores", Context.MODE_PRIVATE);
         String[] scores = new String[this.score_length];
         for (int i = 0; i<this.score_length; i++){
-            String player_scores = "top" + String.valueOf(i+1);
+            String player_scores = "top" + (i + 1);
             scores[i] = get_scores.getString(player_scores, "");
         }
         return scores;
