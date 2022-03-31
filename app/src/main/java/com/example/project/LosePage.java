@@ -23,12 +23,14 @@ public class LosePage extends AppCompatActivity {
         //display top 10
         String[] winner_names = store_data.getNames();
         String[] winner_scores = store_data.getScores();
-        for (int i = 0;i<10;i++){
-            String text_id = "score_top"+(i+1);
-            int resourceId = this.getResources().getIdentifier(text_id,"string", this.getPackageName());
-            TextView top = findViewById(resourceId);
-            String top1_text = winner_names[i]+ "-"+ winner_scores[i];
-            top.setText(top1_text);
+        if (store_data.get_length_scores()!=0) {
+            for (int i = 0; i < winner_names.length; i++) {
+                String text_id = "score_top" + (i + 1);
+                int resourceId = this.getResources().getIdentifier(text_id, "string", this.getPackageName());
+                TextView top = findViewById(resourceId);
+                String top1_text = winner_names[i] + "-" + winner_scores[i];
+                top.setText(top1_text);
+            }
         }
 
 

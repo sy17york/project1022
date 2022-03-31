@@ -36,5 +36,7 @@
     <string name="top_19">Top 19</string>
     <string name="top_20">Top 20</string>
     <string name="leaderboard">Leaderboard</string>
+    <string name="score">Score</string>
+    <string name="back">Back</string>
 
 </resources>

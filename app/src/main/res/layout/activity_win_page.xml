@@ -38,7 +38,7 @@
         android:id="@+id/winscore_display"
         android:layout_width="148dp"
         android:layout_height="47dp"
-        android:text="Score"
+        android:text="@string/score"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,6 +47,109 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.282" />
+
+    <TextView
+        android:id="@+id/scoreboard"
+        android:layout_width="277dp"
+        android:layout_height="255dp"
+        android:background="@drawable/text_drawrectangleborder"
+        android:text="@string/score_top10"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <ScrollView
+        android:layout_width="224dp"
+        android:layout_height="300dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="200dp"
+        app:layout_constraintHorizontal_bias="0.443"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/score_top1"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_1"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top2"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_2"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top3"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_3"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top4"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_4"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top5"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_5"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top7"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_6"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top8"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_7"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top9"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_8"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top6"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_9"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/score_top10"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:text="@string/top_10"
+                android:textSize="34sp" />
+        </LinearLayout>
+    </ScrollView>
 
 
     <ImageButton
