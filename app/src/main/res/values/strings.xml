@@ -38,5 +38,19 @@
     <string name="leaderboard">Leaderboard</string>
     <string name="score">Score</string>
     <string name="back">Back</string>
+    <string name="choose_your_difficulty">Choose your difficulty:</string>
+    <string name="easy_1_10">Easy (1-10)</string>
+    <string name="medium_1_50">MEDIUM (1-50)</string>
+    <string name="hard_1_100">HARD (1-100)</string>
+    <string name="leaderboards">Leaderboards</string>
+    <string name="weather_icon">Weather icon</string>
+    <string name="city">City</string>
+    <string name="guess_the_number">Guess the number</string>
+    <string name="cond">cond</string>
+    <string name="temp">Temp</string>
+    <string name="winddeg">windDeg</string>
+    <string name="windspeed">windSpeed</string>
+    <string name="press">press</string>
+    <string name="humidity">humidity</string>
 
 </resources>
