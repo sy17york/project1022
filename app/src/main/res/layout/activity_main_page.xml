@@ -57,7 +57,7 @@
         app:strokeColor="#040000" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#F80202"
