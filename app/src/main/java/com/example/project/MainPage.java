@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -62,6 +63,7 @@ public class MainPage extends AppCompatActivity {
             }
         });
     }
+    @SuppressLint("StaticFieldLeak")
     private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 
         @Override
@@ -70,13 +72,12 @@ public class MainPage extends AppCompatActivity {
             String data = ( (new WeatherHTTP()).getWeatherData(params[0]));
             try {
                 weather = JSONparser.getWeather(data);
-                weather.iconData = ( (new WeatherHTTP()).getImage(weather.currentCondition.getIcon()));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             return weather;
-
         }
+        @SuppressLint("SetTextI18n")
         @Override
         protected void onPostExecute(Weather weather) {
             TextView cityText = (TextView) findViewById(R.id.cityText);
