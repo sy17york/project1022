@@ -80,22 +80,24 @@ public class MainPage extends AppCompatActivity {
         @SuppressLint("SetTextI18n")
         @Override
         protected void onPostExecute(Weather weather) {
-            TextView cityText = (TextView) findViewById(R.id.cityText);
-            TextView condDescr = (TextView) findViewById(R.id.condDescr);
-            TextView temp = (TextView) findViewById(R.id.temp);
-            TextView hum = (TextView) findViewById(R.id.hum);
-            TextView press = (TextView) findViewById(R.id.press);
-            TextView windSpeed = (TextView) findViewById(R.id.windSpeed);
-            TextView windDeg = (TextView) findViewById(R.id.windDeg);
             super.onPostExecute(weather);
-            cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-            condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-            temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "�C");
-            hum.setText("" + weather.currentCondition.getHumidity() + "%");
-            press.setText("" + weather.currentCondition.getPressure() + " hPa");
-            windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-            windDeg.setText("" + weather.wind.getDeg() + "�");
-
+            if(weather!=null){
+                TextView cityText = (TextView) findViewById(R.id.cityText);
+                TextView condDescr = (TextView) findViewById(R.id.condDescr);
+                TextView temp = (TextView) findViewById(R.id.temp);
+                TextView hum = (TextView) findViewById(R.id.hum);
+                TextView press = (TextView) findViewById(R.id.press);
+                TextView windSpeed = (TextView) findViewById(R.id.windSpeed);
+                TextView windDeg = (TextView) findViewById(R.id.windDeg);
+                cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
+                condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
+                temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "�C");
+                hum.setText("" + weather.currentCondition.getHumidity() + "%");
+                press.setText("" + weather.currentCondition.getPressure() + " hPa");
+                windSpeed.setText("" + weather.wind.getSpeed() + " mps");
+                windDeg.setText("" + weather.wind.getDeg() + "�");
+            }else{
+            }
         }
     }
 

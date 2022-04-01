@@ -17,7 +17,6 @@ public class WeatherHTTP {
             con = (HttpURLConnection) (new URL(BASE_URL + location + "&APPID=" + APPID)).openConnection();
             con.setRequestMethod("GET");
             con.setDoInput(true);
-            con.setDoOutput(true);
             con.connect();
             StringBuilder buffer = new StringBuilder();
             is = con.getInputStream();
