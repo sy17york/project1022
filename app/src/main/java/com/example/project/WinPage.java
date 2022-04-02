@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -26,6 +25,18 @@ public class WinPage extends AppCompatActivity {
         textView.setText(score);
 
         store_data = new StoreData();
+        //display top 10
+        String[] display_scores = store_data.getScores(this, "AppScores");
+        String[] display_names = store_data.getNames(this, "AppNames");
+        for (int i = 0; i < 10; i++) {
+            if (display_scores.length!=0 && display_scores[i] != null) {
+                String score_id = "score_top" + (i + 1);
+                String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
+                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
+                TextView text = findViewById(resID);
+                text.setText(display);
+            }
+        }
         //When the first ever score is entered a new array of 20 is added
         if(store_data.getScores(this, "AppScores").length==0){
             ShowNewScore();
@@ -53,18 +64,6 @@ public class WinPage extends AppCompatActivity {
                         break;
                     }
                 }
-            }
-        }
-        //display top 10
-        String[] display_scores = store_data.getScores(this, "AppScores");
-        String[] display_names = store_data.getNames(this, "AppNames");
-        for (int i = 0; i<10; i++){
-            if(display_scores[i]!=null) {
-                String score_id = "score_top" + (i + 1);
-                String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
-                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
-                TextView text = findViewById(resID);
-                text.setText(display);
             }
         }
 
