@@ -8,9 +8,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 
 public class MainPage extends AppCompatActivity {
@@ -27,12 +24,9 @@ public class MainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         E_button = findViewById(R.id.button3);
-
         addressTxt = findViewById(R.id.cityText);
-
         statusTxt = findViewById(R.id.condDescr);
         tempTxt = findViewById(R.id.temp);
-
         windTxt = findViewById(R.id.windSpeed);
         pressureTxt = findViewById(R.id.press);
         humidityTxt = findViewById(R.id.hum);
@@ -99,17 +93,9 @@ public class MainPage extends AppCompatActivity {
                 JSONObject sys = jsonObj.getJSONObject("sys");
                 JSONObject wind = jsonObj.getJSONObject("wind");
                 JSONObject weather = jsonObj.getJSONArray("weather").getJSONObject(0);
-
-                Long updatedAt = jsonObj.getLong("dt");
-                String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
                 String temp = main.getString("temp") + "°C";
-                String tempMin = "Min Temp: " + main.getString("temp_min") + "°C";
-                String tempMax = "Max Temp: " + main.getString("temp_max") + "°C";
                 String pressure = main.getString("pressure");
                 String humidity = main.getString("humidity");
-
-                Long sunrise = sys.getLong("sunrise");
-                Long sunset = sys.getLong("sunset");
                 String windSpeed = wind.getString("speed");
                 String weatherDescription = weather.getString("description");
 
