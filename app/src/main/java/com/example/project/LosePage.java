@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.lang.reflect.Field;
-
 public class LosePage extends AppCompatActivity {
     StoreData store_data;
 
@@ -35,10 +33,6 @@ public class LosePage extends AppCompatActivity {
                 text.setText(display);
             }
         }
-
-
-
-
         //Home and retry buttons
         ImageButton button = findViewById(R.id.home_button);
         button.setOnClickListener(view -> {

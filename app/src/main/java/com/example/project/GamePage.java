@@ -42,8 +42,8 @@ public class GamePage extends AppCompatActivity {
                         break;
                     }
                     case "lose": {
-                        Intent intent = new Intent(getApplicationContext(), WinPage.class);
-                        intent.putExtra("Value", user.getValue());
+                        Intent intent = new Intent(getApplicationContext(), LosePage.class);
+                        intent.putExtra("Value", String.valueOf(user.getValue()));
                         startActivity(intent);
                         break;
                     }

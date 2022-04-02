@@ -24,7 +24,7 @@
         android:layout_width="266dp"
         android:layout_height="79dp"
         android:background="@drawable/text_drawrectangleborder"
-        android:text="@string/your_score"
+        android:text="@string/correct_number"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:textAlignment="viewStart"

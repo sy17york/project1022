@@ -8,6 +8,7 @@
     <string name="you_lost">You Lost!</string>
     <string name="you_won">You Won!</string>
     <string name="your_score">\nYour \n Score</string>
+    <string name="correct_number">\nMissed \n Number</string>
     <string name="score_top10">\nTOP 10</string>
     <string name="retryimage">retryimage</string>
     <string name="homeimage">homeimage</string>

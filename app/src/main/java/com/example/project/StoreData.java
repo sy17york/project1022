@@ -5,9 +5,6 @@ import android.content.SharedPreferences;
 
 
 public class StoreData{
-    public StoreData(){
-
-    }
 
     public void putScores(Context context, String[]array, String arrayName){
         SharedPreferences prefs = context.getSharedPreferences("TopScores", 0);
