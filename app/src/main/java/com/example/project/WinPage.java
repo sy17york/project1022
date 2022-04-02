@@ -3,14 +3,16 @@ package com.example.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class WinPage extends AppCompatActivity {
-    private String winner_name;
+    private String winner_name = "Default";
     StoreData store_data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,53 +24,46 @@ public class WinPage extends AppCompatActivity {
         //win score display
         TextView textView = findViewById(R.id.winscore_display);
         textView.setText(score);
-
-        //If new score, then pop up a dialog
-        if (store_data.get_length_scores()==0){//if there are no existing scores then it will create one
-            showNewScore();//dialog method
-            String[] first_score = new String[1];
-            String[] first_name = new String[1];
-            first_score[0] = String.valueOf(score);
-            first_name[0] = winner_name;
-            store_data.putScores(first_score);
-            store_data.putNames(first_name);
-            store_data.length_of_scores(1);
-        }else{//else if there are existing scores
-            String[] game_scores = store_data.getScores();
-            String[] score_names = store_data.getNames();
-            String[] score_arr = new String[20];
-            String[] name_arr = new String[20];
-            if (game_scores.length<20){
-                for(int i = 0;i<game_scores.length;i++){
-                    score_arr[i] = score_names[i];
-                    name_arr[i] = score_names[i];
-                }
-                game_scores = score_arr;
-                score_names = name_arr;
-            }
-
-            for (int i = 0; i<game_scores.length; i++){
-                if (Integer.parseInt(score) > Integer.parseInt(game_scores[i]) || score_arr[i] == null){
-                    store_data.length_of_scores(game_scores.length+1);
-                    showNewScore();
-                    game_scores[i] = score;
-                    score_names[i] = this.winner_name;
-                    store_data.putNames(score_names);
-                    store_data.putScores(game_scores);
+        //Popup if new score
+        store_data = new StoreData();
+        if(store_data.getScores(this, "AppScores").length==0){
+            ShowNewScore();
+            String[] new_score = new String[20];
+            new_score[0] = score;
+            store_data.putScores(this, new_score, "AppScores");
+        }else {
+            String[] get_scores = store_data.getScores(this, "AppScores");
+            int score_added = -1;
+            for (int i = 0; i < get_scores.length; i++) {
+                if (get_scores[i] == null) {
+                    ShowAddScore(i);
+                    get_scores[i] = score;
+                    store_data.putScores(this, get_scores, "AppScores");
+                    score_added = 1;
                     break;
                 }
             }
-
+            if (score_added == -1) {
+                for (int i = 0; i < get_scores.length; i++) {
+                    if(Integer.parseInt(score)>Integer.parseInt(get_scores[i])) {
+                        ShowAddScore(i);
+                        get_scores[i] = score;
+                        store_data.putScores(this, get_scores, "AppScores");
+                        break;
+                    }
+                }
+            }
         }
-        String[] winner_names = store_data.getNames();
-        String[] winner_scores = store_data.getScores();
-        if (store_data.get_length_scores()!=0) {
-            for (int i = 0; i < winner_names.length; i++) {
-                String text_id = "score_top" + (i + 1);
-                int resourceId = this.getResources().getIdentifier(text_id, "string", this.getPackageName());
-                TextView top = findViewById(resourceId);
-                String top1_text = winner_names[i] + "-" + winner_scores[i];
-                top.setText(top1_text);
+        //display top 10
+        String[] display_scores = store_data.getScores(this, "AppScores");
+        String[] display_names = store_data.getNames(this, "AppNames");
+        for (int i = 0; i<10; i++){
+            if(display_scores[i]!=null) {
+                String score_id = "score_top" + (i + 1);
+                String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
+                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
+                TextView text = findViewById(resID);
+                text.setText(display);
             }
         }
 
@@ -86,18 +81,38 @@ public class WinPage extends AppCompatActivity {
     }
 
     //This method opens a dialog
-    private void showNewScore() {
+    private void ShowNewScore() {
         AlertDialog.Builder builder = new AlertDialog.Builder(WinPage.this);
         builder.setTitle("NEW Top Score Enter Name Below!");
-        final EditText input = new EditText(this);
+        EditText input = new EditText(this);
+        builder.setCancelable(false);
         builder.setView(input);
-        builder.setPositiveButton("Ok", (dialog, whichButton) -> {
-            winner_name = input.getText().toString();
-            // When pressed ok on dialog stores it in "winner_name"
-        });
+        builder.setPositiveButton("Add Score", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                winner_name= input.getText().toString();
+                String[] new_name = new String[20];
+                new_name[0] = winner_name;
+                store_data.putNames(WinPage.this, new_name, "AppNames");
 
-        builder.setNegativeButton("Cancel", (dialog, whichButton) -> {
-            // This cancels the score adding
+            }
+        });
+        builder.show();
+    }
+    private void ShowAddScore(int index){
+        AlertDialog.Builder builder = new AlertDialog.Builder(WinPage.this);
+        builder.setTitle("NEW Top Score Enter Name Below!");
+        EditText input = new EditText(this);
+        builder.setCancelable(false);
+        builder.setView(input);
+        builder.setPositiveButton("Add Score", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                winner_name= input.getText().toString();
+                String[] get_names = store_data.getNames(WinPage.this, "AppNames");
+                get_names[index] = winner_name;
+                store_data.putNames(WinPage.this, get_names, "AppNames");
+            }
         });
         builder.show();
     }

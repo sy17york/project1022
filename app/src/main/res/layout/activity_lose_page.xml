@@ -83,71 +83,81 @@
             <TextView
                 android:id="@+id/score_top1"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_1"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top2"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_2"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top3"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_3"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top4"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_4"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top5"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_5"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top7"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_6"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top8"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_7"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top9"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_8"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top6"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_9"
+                android:textAlignment="center"
                 android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/score_top10"
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="40dp"
                 android:text="@string/top_10"
+                android:textAlignment="center"
                 android:textSize="34sp" />
         </LinearLayout>
     </ScrollView>
