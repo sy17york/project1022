@@ -1,30 +1,44 @@
 package com.example.project;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONException;
+import org.json.JSONObject;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 
 public class MainPage extends AppCompatActivity {
     Button E_button;
     Button M_button;
     Button H_button;
     Button Leader_button;
+    String CITY = "London,UK";
+    String API = "13ea03b9a160703f897b5d992b6600e5";
+
+    TextView addressTxt, statusTxt, tempTxt, windTxt, pressureTxt, humidityTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        String city = "London,UK";
-        MainPage.JSONWeatherTask task = new MainPage.JSONWeatherTask();
-        task.execute(city);
         E_button = findViewById(R.id.button3);
+
+        addressTxt = findViewById(R.id.cityText);
+
+        statusTxt = findViewById(R.id.condDescr);
+        tempTxt = findViewById(R.id.temp);
+
+        windTxt = findViewById(R.id.windSpeed);
+        pressureTxt = findViewById(R.id.press);
+        humidityTxt = findViewById(R.id.hum);
+        new weatherTask().execute();
+
+
         E_button.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -62,42 +76,58 @@ public class MainPage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
     }
-    @SuppressLint("StaticFieldLeak")
-    private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+    class weatherTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        protected String doInBackground(String... args) {
+            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
+            return response;
+        }
 
         @Override
-        protected Weather doInBackground(String... params) {
-            Weather weather = new Weather();
-            String data = ( (new WeatherHTTP()).getWeatherData(params[0]));
+        protected void onPostExecute(String result) {
+
+
             try {
-                weather = JSONparser.getWeather(data);
+                JSONObject jsonObj = new JSONObject(result);
+                JSONObject main = jsonObj.getJSONObject("main");
+                JSONObject sys = jsonObj.getJSONObject("sys");
+                JSONObject wind = jsonObj.getJSONObject("wind");
+                JSONObject weather = jsonObj.getJSONArray("weather").getJSONObject(0);
+
+                Long updatedAt = jsonObj.getLong("dt");
+                String updatedAtText = "Updated at: " + new SimpleDateFormat("dd/MM/yyyy hh:mm a", Locale.ENGLISH).format(new Date(updatedAt * 1000));
+                String temp = main.getString("temp") + "°C";
+                String tempMin = "Min Temp: " + main.getString("temp_min") + "°C";
+                String tempMax = "Max Temp: " + main.getString("temp_max") + "°C";
+                String pressure = main.getString("pressure");
+                String humidity = main.getString("humidity");
+
+                Long sunrise = sys.getLong("sunrise");
+                Long sunset = sys.getLong("sunset");
+                String windSpeed = wind.getString("speed");
+                String weatherDescription = weather.getString("description");
+
+                String address = jsonObj.getString("name") + ", " + sys.getString("country");
+
+                addressTxt.setText(address);
+                statusTxt.setText(weatherDescription.toUpperCase());
+                tempTxt.setText(temp);
+                windTxt.setText(windSpeed);
+                pressureTxt.setText(pressure);
+                humidityTxt.setText(humidity);
+
+
             } catch (JSONException e) {
-                e.printStackTrace();
             }
-            return weather;
-        }
-        @SuppressLint("SetTextI18n")
-        @Override
-        protected void onPostExecute(Weather weather) {
-            super.onPostExecute(weather);
-            if(weather!=null){
-                TextView cityText = (TextView) findViewById(R.id.cityText);
-                TextView condDescr = (TextView) findViewById(R.id.condDescr);
-                TextView temp = (TextView) findViewById(R.id.temp);
-                TextView hum = (TextView) findViewById(R.id.hum);
-                TextView press = (TextView) findViewById(R.id.press);
-                TextView windSpeed = (TextView) findViewById(R.id.windSpeed);
-                TextView windDeg = (TextView) findViewById(R.id.windDeg);
-                cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-                condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-                temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + "�C");
-                hum.setText("" + weather.currentCondition.getHumidity() + "%");
-                press.setText("" + weather.currentCondition.getPressure() + " hPa");
-                windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-                windDeg.setText("" + weather.wind.getDeg() + "�");
-            }
+
         }
     }
+
 
 }
