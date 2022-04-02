@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.reflect.Field;
+
 public class LeaderboardsPage extends AppCompatActivity {
     StoreData store_data;
 
@@ -15,15 +17,18 @@ public class LeaderboardsPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboards_page);
         //getters for names and scores previous winners
-        String[] leaderboard_names = store_data.getNames();
-        String[] leaderboard_scores = store_data.getScores();
-        //adds them to display
-        for (int i = 0; i< leaderboard_names.length; i++){
-            String text_id = "score_top"+(i+1);
-            int resourceId = this.getResources().getIdentifier(text_id,"string", this.getPackageName());
-            TextView top = findViewById(resourceId);
-            String top1_text = leaderboard_names[i]+ "-"+ leaderboard_scores[i];
-            top.setText(top1_text);
+        store_data = new StoreData();
+        String[] display_scores = store_data.getScores(this, "AppScores");
+        String[] display_names = store_data.getNames(this, "AppNames");
+        for (int i = 0; i<display_scores.length; i++){
+            if (display_scores[i]!=null){
+                String score_id = "score"+(i+1);
+                String display = (i+1)+"."+display_names[i] +"     |      "+display_scores[i];
+                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
+                TextView text = findViewById(resID);
+                text.setText(display);
+            }
+
         }
         //back button
         Button back = findViewById(R.id.back_button);
@@ -32,4 +37,5 @@ public class LeaderboardsPage extends AppCompatActivity {
             startActivity(home);
         });
     }
+
 }

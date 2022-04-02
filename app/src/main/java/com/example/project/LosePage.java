@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.lang.reflect.Field;
+
 public class LosePage extends AppCompatActivity {
     StoreData store_data;
 
@@ -21,18 +23,18 @@ public class LosePage extends AppCompatActivity {
         TextView textView = findViewById(R.id.losescore_display);
         textView.setText(correct_number);
         //display top 10
-        String[] winner_names = store_data.getNames();
-        String[] winner_scores = store_data.getScores();
-        if (store_data.get_length_scores()!=0) {
-            for (int i = 0; i < winner_names.length; i++) {
-                String text_id = "score_top" + (i + 1);
-                int resourceId = this.getResources().getIdentifier(text_id, "string", this.getPackageName());
-                TextView top = findViewById(resourceId);
-                String top1_text = winner_names[i] + "-" + winner_scores[i];
-                top.setText(top1_text);
+        store_data = new StoreData();
+        String[] display_scores = store_data.getScores(this, "AppScores");
+        String[] display_names = store_data.getNames(this, "AppNames");
+        for (int i = 0; i<10; i++){
+            if(display_scores[i]!=null) {
+                String score_id = "score_top" + (i + 1);
+                String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
+                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
+                TextView text = findViewById(resID);
+                text.setText(display);
             }
         }
-
 
 
 
