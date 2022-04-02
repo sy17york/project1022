@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">project</string>
+    <string name="app_name">Guess</string>
     <string name="inputnum">Input How Many Tries</string>
     <string name="startgame">Start Game</string>
     <string name="inputaint">input a int number here</string>

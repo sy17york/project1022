@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/score_border"
-        android:layout_width="275dp"
+        android:layout_width="277dp"
         android:layout_height="82dp"
         android:background="@drawable/text_drawrectangleborder"
         android:text="@string/your_score"
