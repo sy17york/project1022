@@ -23,7 +23,7 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
         String city = "London,UK";
         MainPage.JSONWeatherTask task = new MainPage.JSONWeatherTask();
-        task.execute(new String[]{city});
+        task.execute(city);
         E_button = findViewById(R.id.button3);
         E_button.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -96,7 +96,6 @@ public class MainPage extends AppCompatActivity {
                 press.setText("" + weather.currentCondition.getPressure() + " hPa");
                 windSpeed.setText("" + weather.wind.getSpeed() + " mps");
                 windDeg.setText("" + weather.wind.getDeg() + "�");
-            }else{
             }
         }
     }
