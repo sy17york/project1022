@@ -15,23 +15,25 @@ public class MainPage extends AppCompatActivity {
     Button M_button;
     Button H_button;
     Button Leader_button;
+    //City can be changed here and API key was generated using open weather Api
     String CITY = "London,UK";
     String API = "13ea03b9a160703f897b5d992b6600e5";
-
+    //Textview that are later assigned there respective View Ids
     TextView addressTxt, statusTxt, tempTxt, windTxt, pressureTxt, humidityTxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        E_button = findViewById(R.id.button3);
+        //Weather Display
         addressTxt = findViewById(R.id.cityText);
         statusTxt = findViewById(R.id.condDescr);
         tempTxt = findViewById(R.id.temp);
         windTxt = findViewById(R.id.windSpeed);
         pressureTxt = findViewById(R.id.press);
         humidityTxt = findViewById(R.id.hum);
+        //Initiates the weather ASYNC TASK
         new weatherTask().execute();
-
+        E_button = findViewById(R.id.button3);
 
         E_button.setOnClickListener(new View.OnClickListener() {
                                         @Override
@@ -72,17 +74,16 @@ public class MainPage extends AppCompatActivity {
         });
 
     }
+    //Async Task runs in the BackGround of the App
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
-
+        //Generates a URL with our App Id and City
         protected String doInBackground(String... args) {
-            String response = HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
-            return response;
+            return HttpRequest.excuteGet("https://api.openweathermap.org/data/2.5/weather?q=" + CITY + "&units=metric&appid=" + API);
         }
-
         @Override
         protected void onPostExecute(String result) {
 
@@ -98,9 +99,8 @@ public class MainPage extends AppCompatActivity {
                 String humidity = main.getString("humidity");
                 String windSpeed = wind.getString("speed");
                 String weatherDescription = weather.getString("description");
-
                 String address = jsonObj.getString("name") + ", " + sys.getString("country");
-
+                //Output is the Class variables
                 addressTxt.setText(address);
                 statusTxt.setText(weatherDescription.toUpperCase());
                 tempTxt.setText(temp);
