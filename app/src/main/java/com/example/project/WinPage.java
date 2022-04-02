@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,14 +23,27 @@ public class WinPage extends AppCompatActivity {
         //win score display
         TextView textView = findViewById(R.id.winscore_display);
         textView.setText(score);
-        //Popup if new score
+
         store_data = new StoreData();
+        //display top 10
+        String[] display_scores = store_data.getScores(this, "AppScores");
+        String[] display_names = store_data.getNames(this, "AppNames");
+        for (int i = 0; i < 10; i++) {
+            if (display_scores.length!=0 && display_scores[i] != null) {
+                String score_id = "score_top" + (i + 1);
+                String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
+                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
+                TextView text = findViewById(resID);
+                text.setText(display);
+            }
+        }
+        //When the first ever score is entered a new array of 20 is added
         if(store_data.getScores(this, "AppScores").length==0){
             ShowNewScore();
             String[] new_score = new String[20];
             new_score[0] = score;
             store_data.putScores(this, new_score, "AppScores");
-        }else {
+        }else { //After the first score, the rest is easy to add, comparing the Scores.
             String[] get_scores = store_data.getScores(this, "AppScores");
             int score_added = -1;
             for (int i = 0; i < get_scores.length; i++) {
@@ -54,18 +66,6 @@ public class WinPage extends AppCompatActivity {
                 }
             }
         }
-        //display top 10
-        String[] display_scores = store_data.getScores(this, "AppScores");
-        String[] display_names = store_data.getNames(this, "AppNames");
-        for (int i = 0; i<10; i++){
-            if(display_scores[i]!=null) {
-                String score_id = "score_top" + (i + 1);
-                String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
-                int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
-                TextView text = findViewById(resID);
-                text.setText(display);
-            }
-        }
 
         //Home and retry button
         ImageButton button = findViewById(R.id.home_button);
@@ -80,7 +80,7 @@ public class WinPage extends AppCompatActivity {
         });
     }
 
-    //This method opens a dialog
+    //This method opens a dialog to add a score for first time scores
     private void ShowNewScore() {
         AlertDialog.Builder builder = new AlertDialog.Builder(WinPage.this);
         builder.setTitle("NEW Top Score Enter Name Below!");
@@ -99,6 +99,7 @@ public class WinPage extends AppCompatActivity {
         });
         builder.show();
     }
+    //This method opens a dialog to add a score for scores after the first time
     private void ShowAddScore(int index){
         AlertDialog.Builder builder = new AlertDialog.Builder(WinPage.this);
         builder.setTitle("NEW Top Score Enter Name Below!");

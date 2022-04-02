@@ -25,7 +25,7 @@ public class LosePage extends AppCompatActivity {
         String[] display_scores = store_data.getScores(this, "AppScores");
         String[] display_names = store_data.getNames(this, "AppNames");
         for (int i = 0; i<10; i++){
-            if(display_scores[i]!=null) {
+            if(display_scores.length!=0 && display_scores[i]!=null) {
                 String score_id = "score_top" + (i + 1);
                 String display = (i + 1) + "." + display_names[i] + " -> " + display_scores[i];
                 int resID = this.getResources().getIdentifier(score_id, "id", this.getPackageName());
