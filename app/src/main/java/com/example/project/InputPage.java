@@ -14,7 +14,6 @@ public class InputPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
-        //Intent i = getIntent().getExtras();
         String mode = getIntent().getStringExtra("Mode");
         EditText tx = (EditText) findViewById(R.id.editTextNuminputtries);
         inputNumbutton = findViewById(R.id.inputPagebutton);

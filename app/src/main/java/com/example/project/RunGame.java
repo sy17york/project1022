@@ -47,6 +47,9 @@ public class RunGame {
             }
             return mode;
         }
+        public void setValue(int n){
+            this.value = n;
+        }//only for test
 
         public int getValue(){
             return this.value;
@@ -99,7 +102,8 @@ public class RunGame {
         }
 
         public int getScore(){
-            this.score = (int) ((1/ this.actual_tries) * this.score * this.bonus - this.expected_tries);
+            double score = (double)((1/ this.actual_tries) * this.score * this.bonus) - this.expected_tries;
+            this.score = (int)score;
             return this.score;
         }
 

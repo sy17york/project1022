@@ -41,4 +41,5 @@ public class TestRunGame {
         }assertEquals( n, abs.getActual_Tries());
         assertEquals( n, abs.getValue());
     }
+
 }

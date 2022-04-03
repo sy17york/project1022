@@ -30,9 +30,12 @@ public class GamePage extends AppCompatActivity {
         RunCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                int guessednum = Integer.parseInt(GuessInputNum.getText().toString());
-
+                int guessednum = 0;
+                guessednum = Integer.parseInt(GuessInputNum.getText().toString());
+                if(guessednum == 0){
+                    String str3 = "Please input a positive number";
+                    ((TextView) findViewById(R.id.textViewshowLH)).setText(str3);
+                }else{
                 switch (user.isNumberCorrect(guessednum)) {
                     case "win": {
                         String score = String.valueOf(user.getScore());
@@ -63,7 +66,7 @@ public class GamePage extends AppCompatActivity {
                         GuessInputNum.setText("");
                         break;
                     }
-                }
+                }}
             }
         });
 
