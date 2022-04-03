@@ -53,5 +53,14 @@
     <string name="windspeed">windSpeed</string>
     <string name="press">press</string>
     <string name="humidity">humidity</string>
-
+    <string-array name="planets_array">
+        <item>London,UK</item>
+        <item>Toronto,CA</item>
+        <item>Japan,JP</item>
+        <item>People’s Republic of China,CN</item>
+        <item>California,US</item>
+        <item>Federative Republic of Brazil,BR</item>
+        <item>Kingdom of Spain,ES</item>
+        <item>Republic of France,FR</item>
+    </string-array>
 </resources>
