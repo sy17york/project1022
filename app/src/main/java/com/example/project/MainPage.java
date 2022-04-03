@@ -3,14 +3,17 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainPage extends AppCompatActivity {
+public class MainPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button E_button;
     Button M_button;
     Button H_button;
@@ -31,8 +34,16 @@ public class MainPage extends AppCompatActivity {
         windTxt = findViewById(R.id.windSpeed);
         pressureTxt = findViewById(R.id.press);
         humidityTxt = findViewById(R.id.hum);
-        //Initiates the weather ASYNC TASK
-        new weatherTask().execute();
+        //Spinner or dropdown to select different countries
+        Spinner spinner = (Spinner) findViewById(R.id.city_spinner);
+        // Array adapter created using strings.xml
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.planets_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         E_button = findViewById(R.id.button3);
 
         E_button.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +85,18 @@ public class MainPage extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Spinner spinner = (Spinner)findViewById(R.id.city_spinner);
+        CITY = spinner.getSelectedItem().toString();
+        new weatherTask().execute();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
     //Async Task runs in the BackGround of the App
     class weatherTask extends AsyncTask<String, Void, String> {
         @Override
